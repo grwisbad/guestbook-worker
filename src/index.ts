@@ -49,9 +49,16 @@ export default {
         ) {
           return new Response(JSON.stringify({ error: "Missing author or content" }), { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } });
         }
+
+        // Get current time in EST (America/New_York)
+        const now = new Date();
+        const estTime = now.toLocaleString('sv-SE', { timeZone: 'America/New_York', hour12: false }).replace(' ', 'T');
+        // estTime will be like "2025-04-16T13:45:00"
+
         await env.DB.prepare(
-          "INSERT INTO comments (author, content) VALUES (?, ?)"
-        ).bind((data as any).author, (data as any).content).run();
+          "INSERT INTO comments (author, content, created_at) VALUES (?, ?, ?)"
+        ).bind((data as any).author, (data as any).content, estTime).run();
+
         return new Response(JSON.stringify({ success: true }), { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } });
       }
     }
