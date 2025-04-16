@@ -41,12 +41,17 @@ export default {
 
       if (request.method === 'POST') {
         const data = await request.json();
-        if (!data.author || !data.content) {
+        if (
+          typeof data !== "object" ||
+          data === null ||
+          typeof (data as any).author !== "string" ||
+          typeof (data as any).content !== "string"
+        ) {
           return new Response(JSON.stringify({ error: "Missing author or content" }), { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } });
         }
         await env.DB.prepare(
-          "INSERT INTO comments (author, content) VALUES (?, ?)"
-        ).bind(data.author, data.content).run();
+          "INSERT INTO guestbook (author, content, created_at) VALUES (?, ?, ?)"
+        ).bind((data as any).author, (data as any).content, new Date().toISOString()).run();
         return new Response(JSON.stringify({ success: true }), { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } });
       }
     }
