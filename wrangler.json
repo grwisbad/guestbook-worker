@@ -1,0 +1,16 @@
+{
+  "compatibility_date": "2025-04-01",
+  "main": "src/index.ts",
+  "name": "guestbook-worker",
+  "upload_source_maps": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_id": "d2df1e51-4193-4ac3-835c-a1128360d192",
+      "database_name": "guestbook"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
