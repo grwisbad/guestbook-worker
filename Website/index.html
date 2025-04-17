@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Eric Farag | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=1.1">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentVersion = '1.1';
+            const storedVersion = localStorage.getItem('site-version');
+            
+            if (storedVersion !== currentVersion) {
+                localStorage.setItem('site-version', currentVersion);
+                
+                if (storedVersion) {
+                    window.location.reload(true);
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Eric Farag</h1>
+        <p>IT & Networking Specialist | Computer Science Student</p>
+        <div class="contact-header">
+            <p>Brooklyn, NY | (347) 299-4924</p>
+            <div class="header-links">
+                <a href="mailto:ericvla2468@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://linkedin.com/in/eric-farag" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#guestbook">Guestbook</a></li>
+        </ul>
+    </nav>
+
+    <section id="education" class="education">
+        <h2>Education</h2>
+        <div class="education-item">
+            <h3>Long Island University</h3>
+            <p class="degree">Bachelor of Science in Computer Science</p>
+            <p class="details">GPA: 3.5 | Expected Graduation May 2026</p>
+            <div class="coursework">
+                <h4>Relevant Coursework:</h4>
+                <p>Computer Networks, Database Structures, Web Development, Discrete Structures, Cryptography, Computer Architecture, Operating Systems, Business Statistics</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <h2>Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <h3>JCC Brooklyn - Assistant Supervisor</h3>
+                <p class="duration">June 2023 – August 2023</p>
+                <ul>
+                    <li>Managed multiple groups and coordinated daily staff operations</li>
+                    <li>Supervised counselors including scheduling and group management</li>
+                    <li>Implemented operational improvements based on stakeholder feedback</li>
+                </ul>
+            </div>
+            <div class="experience-card">
+                <h3>Kings Bay Y/JCC Brooklyn - Transportation Coordinator</h3>
+                <p class="duration">May 2024 – Present</p>
+                <ul>
+                    <li>Manage 18 bus routes and optimize scheduling using Excel</li>
+                    <li>Develop administrative processes for route optimization</li>
+                    <li>Handle parent/client communications and service updates</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="project-card">
+            <h3>Game Dashboard Whitelisting System</h3>
+            <ul>
+                <li>Developed Flask API with MongoDB integration</li>
+                <li>Implemented secure API key management system</li>
+                <li>Created user authentication and access controls</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Technical</h3>
+                <ul>
+                    <li>Python, JavaScript, Java</li>
+                    <li>Flask, MongoDB</li>
+                    <li>DNS, Cloudflare, VPN</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Tools</h3>
+                <ul>
+                    <li>Excel, MS Office</li>
+                    <li>Adobe Creative, Autodesk</li>
+                    <li>Raspberry Pi, Wireshark</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Professional</h3>
+                <ul>
+                    <li>Logistics Management</li>
+                    <li>Team Leadership</li>
+                    <li>Problem Solving</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="guestbook">
+        <h2>Guestbook</h2>
+        <form id="comment-form">
+            <input type="text" id="author" placeholder="Your name" required />
+            <textarea id="content" placeholder="Your comment" required></textarea>
+            <button type="submit">Add Comment</button>
+        </form>
+        <h3 style="margin-top:2rem;">Recent Comments</h3>
+        <div id="comments"></div>
+    </section>
+
+    <footer>
+        <p>2025 Eric Farag | Portfolio</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
